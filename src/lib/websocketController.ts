@@ -6,8 +6,7 @@ interface PromiseExecutor<T> {
   resolve: (value: T | PromiseLike<T>) => void;
   reject: (reason?: any) => void;
 }
-
-export class WebsocketController {
+export default class WebsocketController {
   private websocket!: Promise<WebSocket>;
   private messageCallback!: (message: Message) => void;
   private readonly messageAwaitingReply = new Map<UUID, PromiseExecutor<Message>>();
